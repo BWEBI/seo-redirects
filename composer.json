@@ -1,10 +1,16 @@
 {
     "name": "bwebi/seo-redirects",
+    "type": "Laravel Package",
     "description": "Manage 301 redirections for SEO proposals",
+    "keywords": ["seo", "redirect", "301"],
+    "homepage": "https://github.com/ChenAlon/seo-redirects",
+    "license": "MIT",
     "authors": [
         {
             "name": "Chen Alon",
-            "email": "chen@bwebi.co.il"
+            "email": "chen@bwebi.co.il",
+            "homepage": "http://bwebi.co.il",
+            "role": "Founder & CEO"
         }
     ],
     "require": {
