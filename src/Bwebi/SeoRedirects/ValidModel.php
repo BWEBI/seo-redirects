@@ -12,34 +12,34 @@ use Illuminate\Validation\Validator;
 class ValidModel extends Eloquent
 {
     /**
-     * Error message bag
+     * Error message bag.
      *
      * @var Illuminate\Support\MessageBag
      */
     protected $errors;
 
     /**
-     * Validation rules
+     * Validation rules.
      *
-     * @var Array
+     * @var array
      */
-    protected static $rules = array();
+    protected static $rules = [];
 
     /**
-     * Custom messages
+     * Custom messages.
      *
-     * @var Array
+     * @var array
      */
-    protected static $messages = array();
+    protected static $messages = [];
 
     /**
-     * Validator instance
+     * Validator instance.
      *
      * @var Illuminate\Validation\Validators
      */
     protected $validator;
 
-    public function __construct(array $attributes = array(), Validator $validator = null)
+    public function __construct(array $attributes = [], Validator $validator = null)
     {
         parent::__construct($attributes);
 
@@ -47,27 +47,25 @@ class ValidModel extends Eloquent
     }
 
     /**
-     * Listen for save event
+     * Listen for save event.
      */
     protected static function boot()
     {
         parent::boot();
 
-        static::saving(function($model)
-        {
+        static::saving(function ($model) {
             return $model->validate();
         });
     }
 
     /**
-     * Validates current attributes against rules
+     * Validates current attributes against rules.
      */
     public function validate()
     {
         $v = $this->validator->make($this->attributes, static::$rules, static::$messages);
 
-        if ($v->passes())
-        {
+        if ($v->passes()) {
             return true;
         }
 
@@ -77,7 +75,7 @@ class ValidModel extends Eloquent
     }
 
     /**
-     * Set error message bag
+     * Set error message bag.
      *
      * @var Illuminate\Support\MessageBag
      */
@@ -87,7 +85,7 @@ class ValidModel extends Eloquent
     }
 
     /**
-     * Retrieve error message bag
+     * Retrieve error message bag.
      */
     public function getErrors()
     {
@@ -95,10 +93,10 @@ class ValidModel extends Eloquent
     }
 
     /**
-     * Inverse of wasSaved
+     * Inverse of wasSaved.
      */
     public function hasErrors()
     {
-        return ! empty($this->errors);
+        return !empty($this->errors);
     }
 }
