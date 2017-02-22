@@ -1,0 +1,23 @@
+{
+    "name": "bwebi/seo-redirects",
+    "description": "Manage redirections especially for SEO proposals",
+    "authors": [
+        {
+            "name": "Chen Alon",
+            "email": "chen@bwebi.co.il"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.1.*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-0": {
+            "Bwebi\\SeoRedirects\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
