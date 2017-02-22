@@ -15,7 +15,7 @@ class CreateRedirectionsTable extends Migration
             $table->increments('id');
             $table->string('from_url', 500);
             $table->string('to_url', 500);
-            $table->integer('status_code');
+            $table->integer('status_code')->default(301);
             $table->timestamps();
             $table->softDeletes();
         });

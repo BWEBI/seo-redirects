@@ -4,6 +4,7 @@ namespace Bwebi\SeoRedirects;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class RedirectsManager
 {
@@ -41,11 +42,11 @@ class RedirectsManager
     public function findRequest($request)
     {
         try {
-            $this->redirect = DB::table('redirections')->where('from_url', $request->getRequestUri())->first();
+            $this->redirect = RedirectsModel::where('from_url', $request->fullUrl())->first();
 
             return $this->redirect;
         } catch (\Exception $ex) {
-            Sentry::captureException($ex);
+            Log::error($ex);
         }
     }
 
