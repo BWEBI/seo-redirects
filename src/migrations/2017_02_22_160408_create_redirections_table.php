@@ -1,19 +1,17 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRedirectionsTable extends Migration {
-
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
-	public function up()
-	{
-        Schema::create('redirections', function($table)
-        {
+class CreateRedirectionsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('redirections', function ($table) {
             $table->increments('id');
             $table->string('from_url', 500);
             $table->string('to_url', 500);
@@ -21,16 +19,15 @@ class CreateRedirectionsTable extends Migration {
             $table->timestamps();
             $table->softDeletes();
         });
-	}
-
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
-	public function down()
-	{
-        Schema::dropIfExists('redirections');
     }
 
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('redirections');
+    }
 }
