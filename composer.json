@@ -25,5 +25,8 @@
             "Bwebi\\SeoRedirects\\": "src/"
         }
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "require-dev": {
+        "satooshi/php-coveralls": "^1.0"
+    }
 }
