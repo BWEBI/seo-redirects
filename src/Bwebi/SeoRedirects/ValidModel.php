@@ -63,13 +63,13 @@ class ValidModel extends Eloquent
      */
     public function validate()
     {
-        $v = $this->validator->make($this->attributes, static::$rules, static::$messages);
+        $valid = $this->validator->make($this->attributes, static::$rules, static::$messages);
 
-        if ($v->passes()) {
+        if ($valid->passes()) {
             return true;
         }
 
-        $this->setErrors($v->messages());
+        $this->setErrors($valid->messages());
 
         return false;
     }
