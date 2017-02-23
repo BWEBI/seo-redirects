@@ -5,6 +5,7 @@ namespace Bwebi\SeoRedirects;
 class RedirectsModel extends ValidModel
 {
     protected $table = 'redirections';
+    protected $softDelete = true;
 
     protected static $rules = [
         'from_url'      => 'required|url',
