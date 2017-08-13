@@ -41,7 +41,8 @@ class RedirectsManager
     public function findRequest($request)
     {
         try {
-            $this->redirect = RedirectsModel::where('from_url', $request->fullUrl())->first();
+            $current_request = $request->getSchemeAndHttpHost().$request->getRequestUri();
+            $this->redirect = RedirectsModel::where('from_url', RedirectsModel::encodeUrlPath($current_request))->first();
 
             return $this->redirect;
         } catch (\Exception $ex) {
