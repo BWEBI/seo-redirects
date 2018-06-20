@@ -42,7 +42,7 @@ class RedirectsManager
     {
         try {
             $current_request = $request->getSchemeAndHttpHost().$request->getRequestUri();
-            $this->redirect = RedirectsModel::where('from_url', RedirectsModel::encodeUrlPath($current_request))->first();
+            $this->redirect = RedirectsModel::where('from_url', $current_request)->first();
 
             return $this->redirect;
         } catch (\Exception $ex) {
